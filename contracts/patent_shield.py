@@ -237,7 +237,7 @@ class Contract(gl.Contract):
             reason = str(parsed.get("reason", ""))
 
             # Low confidence -> escalate instead of deciding
-            if conf < 65 and verdict != "ABORT":
+            if conf < 75 and verdict != "ABORT":
                 verdict = "ABORT"
                 reason = "[low_confidence: " + str(conf) + "%] " + reason
 
@@ -265,7 +265,7 @@ class Contract(gl.Contract):
             m_conf = int(mine_data.get("confidence", 0))
 
             # Agree on MEANING: same verdict AND same confidence bucket
-            return (l_verdict == m_verdict) and ((l_conf >= 65) == (m_conf >= 65))
+            return (l_verdict == m_verdict) and ((l_conf >= 75) == (m_conf >= 75))
 
         result = gl.vm.run_nondet(leader_fn, validator_fn)
         if not isinstance(result, dict):
@@ -279,7 +279,7 @@ class Contract(gl.Contract):
         reason = str(result.get("reason", "Patent clearance consensus completed"))
 
         # Post-consensus deterministic normalization
-        if confidence < 65 and verdict != "ABORT":
+        if confidence < 75 and verdict != "ABORT":
             verdict = "ABORT"
 
         c.verdict = verdict
