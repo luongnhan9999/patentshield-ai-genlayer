@@ -38,7 +38,7 @@ Unlike traditional smart contracts, GenLayer contracts achieve consensus on subj
 3. **Two validators that reach different verdicts will NEVER both pass.** This is the critical design constraint from GenLayer's scoring rubric (Axis 2).
 
 ## Deployment Details
-- **Contract Address**: *(to be updated after redeployment)*
+- **Contract Address**: `0xDa7E85E6916372ea1d3D53e29A3b49B1DD5014D4`
 - **Network**: `studionet`
 
 ### Deploy Steps
